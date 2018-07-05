@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Richard Diphoorn
+  description: This role is a example on how to generate names based on inputs for Azure Resources.
+  company: rdtechie
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+  galaxy_tags:
+    - Azure
+    - Microsoft
+    - Naming
+dependencies: []
+...
