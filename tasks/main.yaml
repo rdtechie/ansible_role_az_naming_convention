@@ -1,0 +1,46 @@
+---
+- name: Set Resource Group Name for the Business Application
+  set_fact: az_resource_group_name_business_application={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Rsg-{{ az_custom_description }}-{{ az_custom_increment }}
+
+- name: Set Resource Group Name for the Central Network
+  set_fact: az_resource_group_name_central_network={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Rsg-Ntwk-{{ az_custom_increment }}
+
+- name: Set Virtual Network Name for the Business Application
+  set_fact: az_virtual_network_name_business_application={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Vnet-{{ az_custom_description }}-{{ az_custom_increment }}
+  
+- name: Set Virtual Network Name for the Central Network
+  set_fact: az_virtual_network_name_central_network={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Vnet-{{ az_custom_increment }}
+
+- name: Set Virtual Subnet Name
+  set_fact: az_virtual_subnet_name={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Snt-{{ az_custom_description }}-{{ az_custom_increment }}
+  
+- name: Set Public IP Address Name  
+  set_fact: az_public_ip_address_name={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Pip-{{ az_custom_description }}-{{ az_custom_increment }}
+
+- name: Set Network Security Group Name  
+  set_fact: az_network_security_group_name={{ az_custom_location_id }}-{{ az_custom_subscription_id }}-{{ az_custom_environment_id }}-Nsg-{{ az_custom_description }}-{{ az_custom_increment }}
+
+- name: Set Network Interface Name  
+  set_fact: az_network_interface_name={{ az_custom_location_id|lower }}{{ az_custom_subscription_id|lower }}{{ az_custom_environment_id|lower }}l{{ az_custom_description|lower }}-nic-{{ az_custom_increment }}
+
+- name: Set Storage Account Name  
+  set_fact: az_storage_account_name={{ az_custom_location_id|lower }}{{ az_custom_subscription_id|lower }}{{ az_custom_environment_id|lower }}sa{{ az_custom_description|lower}}{{ az_custom_increment }}
+
+# - name: Setting Virtual Machine Name Variable to Linux Specific
+#   set_fact: az_vm_name={{ az_custom_location_id|lower }}{{ az_custom_subscription_id|lower }}{{ az_custom_environment_id|lower }}l{{ az_custom_description|lower }}
+#   when: 
+#     -  item.az_os_type is defined
+#     -  item.az_os_type == "Linux"
+
+# - name: Setting Virtual Machine Name Variable to Windows Specific
+#   set_fact: az_vm_name={{ az_custom_location_id|lower }}{{ az_custom_subscription_id|lower }}{{ az_custom_environment_id|lower }}w{{ az_custom_description|lower }}
+#   when:
+#     -  item.az_os_type is defined
+#     -  item.az_os_type == "Windows"
+
+# - name: Print Virtual Machine Name
+#   debug: 
+#     msg: "Virtual Machine Name is {{ az_vm_name }}"
+#     verbosity: 1
+#   when:  az_custom_vm_os_type is defined
+...
